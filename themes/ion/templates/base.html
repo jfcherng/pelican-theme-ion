@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+  <!--
+    Theme Name: ION
+    Theme Author: Jack Cherng <jfcherng@gmail.com>
+    Source Codes: https://github.com/jfcherng/pelican-theme-ion
+  -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock keywords %}">
+
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+
+    <link rel="icon" href="{{ SITEURL }}/favicon.ico" />
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/apple-touch-icon.png" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    {% if ION_ASSETS_MINIFY %}
+      {% assets filters="cssmin", output="css/all.min.css",
+        "css/pygment.css",
+        "css/style.css",
+        "css/style-xlarge.css"
+      %}
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" />
+      {% endassets %}
+    {% else %}
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xlarge.css" />
+    {% endif %}
+
+    {% include 'common/dynamic_css.html' %}
+    <!-- /Stylesheets -->
+
+    <!-- Scripts -->
+    <script> var SITEURL = "{{ SITEURL }}"; </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.min.js"></script><![endif]-->
+    {% if ION_ASSETS_MINIFY %}
+      {% assets filters="jsmin", output="js/all.min.js",
+        "js/skel_modified.js",
+        "js/skel-layers.min.js",
+        "js/init.js"
+      %}
+        <script type="text/javascript" src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
+      {% endassets %}
+    {% else %}
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel_modified.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-layers.min.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/init.js"></script>
+    {% endif %}
+
+    {% include 'common/google_analytics.html' %}
+    <!-- /Scripts -->
+
+    {% include 'common/feeds.html' %}
+
+    {% block extra_head %}{% endblock extra_head %}
+  </head>
+
+  <body id="top">
+    <!-- Header -->
+    {% block header %}
+      <header id="header" class="skel-layers-fixed">
+        <h1><a href="{{ SITEURL }}">{{ ION_HEADER_TITLE|default(SITENAME) }}</a></h1>
+        <nav id="nav">
+          <ul>
+            {# user-defined menu #}
+            {% for title, link in MENUITEMS|default((), true) %}
+              {# external link #}
+              {% if '://' in link or link.startswith('//') %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+              {# internal link #}
+              {% else %}
+                <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {# auto-generated menu from pages #}
+            {% for pg in pages %}
+              {% if DISPLAY_PAGES_ON_MENU or pg.display_on_menu == 'yes' %}
+                <li><a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
+    {% endblock header %}
+    <!-- /Header -->
+
+    <!-- Banner -->
+    {% block banner %}
+      <section id="banner">
+        <div class="inner">
+          <h2>
+            <a href="{{ SITEURL }}">{{ ION_BANNER_TITLE|default(SITENAME, true) }}</a>
+            {% if ION_BANNER_TITLE_EXTRA %}
+              <div class="title-extra">{{ ION_BANNER_TITLE_EXTRA }}</div>
+            {% endif %}
+          </h2>
+          {% if ION_BANNER_SUBTITLE %}
+            <p>{{ ION_BANNER_SUBTITLE }}</p>
+          {% endif %}
+        </div>
+      </section>
+    {% endblock banner %}
+    <!-- /Banner -->
+
+    <!-- Content -->
+    <section id="main-content" class="wrapper">
+      <div class="container content">
+        {% block content %}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="main-section">
+                <p>No content here...</p>
+              </div>
+            </div>
+          </div>
+        {% endblock content %}
+      </div>
+    </section>
+    <!-- /Content -->
+
+    <!-- Footer -->
+    {% block footer %}
+      <footer id="footer" class="{{ ION_FOOTER_EXTRA_CLASS|default('') }}">
+        <div class="container">
+          {% if ION_FOOTER_HTML %}
+            <div class="row footer-html">
+              {{ ION_FOOTER_HTML }}
+            </div>
+          {% endif %}
+          <ul class="copyright">
+            <li>{{ ION_COPYRIGHT }}</li>
+            <li>
+              {{
+                ION_L['theme_author_acknowledgment'].format(
+                  '<a href="https://github.com/jfcherng/pelican-theme-ion">ION</a>',
+                  '<a href="https://github.com/jfcherng">Jack Cherng</a>'
+                )
+              }}
+            </li>
+          </ul>
+        </div>
+      </footer>
+    {% endblock footer %}
+    <!-- /Footer -->
+
+    <!-- Particle -->
+      {% if ION_BACKGROUND_PARTICLE %}
+        <div id="particles-js"></div>
+        <style type="text/css">
+          body,
+          #main-content {
+            background: transparent;
+          }
+        </style>
+        <script type="text/javascript">
+          particlesJS("particles-js", {
+            particles: {
+              number: {
+                value: 80,
+                density: {
+                  enable: true,
+                  value_area: 700
+                }
+              },
+              shape: {
+                type: ["circle", "triangle", "edge"]
+              },
+              color: {
+                value: "#c2c2c2"
+              },
+              opacity: {
+                value: 0.8,
+                random: true,
+                anim: {
+                  enable: false,
+                  speed: 1,
+                  opacity_min: 0.2,
+                  sync: false
+                }
+              },
+              size: {
+                value: 3,
+                random: false,
+                anim: {
+                  enable: false,
+                  speed: 10,
+                  size_min: 1,
+                  sync: false
+                }
+              },
+              line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#c2c2c2",
+                opacity: 0.5,
+                width: 1
+              },
+              move: {
+                enable: true,
+                speed: 2,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: {
+                  enable: false,
+                  rotateX: 600,
+                  rotateY: 1200
+                }
+              }
+            },
+            retina_detect: true
+          });
+        </script>
+      {% endif %}
+    <!-- /Particle -->
+  </body>
+</html>

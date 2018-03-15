@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ super() }}{% endblock title %}
+{% block description %}{{ (page.description if page.description else page.content)|striptags|truncate(200)|e }}{% endblock description %}
+{% block keywords %}{{ page.tags|default([], true)|sort|join(',')|e }}{% endblock keywords %}
+
+{% block extra_head %}
+  <style>
+    .page-meta > .meta > .author:not(:last-child):after,
+    .page-meta > .meta > .tag:not(:last-child):after {
+        content: "{{ ION_L['multi_separator']|e }}";
+    }
+  </style>
+{% endblock extra_head %}
+
+{% block content %}
+  {# row #}
+  <div class="row">
+    <div class="col-md-12">
+      {# main-section #}
+      <div class="main-section page-head no-hx-decoration">
+        <h2 class="page-title">{{ page.title }}</h2>
+        {% set is_show_meta_authors        = ION_SHOW_AUTHORS_ON_PAGE        and page.authors %}
+        {% set is_show_meta_published_date = ION_SHOW_PUBLISHED_DATE_ON_PAGE and page.date %}
+        {% set is_show_meta_modified_date  = ION_SHOW_MODIFIED_DATE_ON_PAGE  and page.modified %}
+        {% set is_show_meta_tags           = ION_SHOW_TAGS_ON_PAGE           and page.tags %}
+
+        {% if
+          is_show_meta_authors        or
+          is_show_meta_published_date or
+          is_show_meta_modified_date  or
+          is_show_meta_tags
+        %}
+          <div class="page-meta">
+            {% if is_show_meta_authors %}
+              <div class="meta">
+                {% if page.authors|length >= 2 %}
+                  <i class="fas fa-users" data-toggle="tooltip" title="{{ ION_L['authors']|e }}"></i>
+                {% else %}
+                  <i class="fas fa-user" data-toggle="tooltip" title="{{ ION_L['author']|e }}"></i>
+                {% endif %}
+                {% for author in page.authors %}
+                  <span class="author">
+
+                  </span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {% if is_show_meta_published_date %}
+              <div class="meta">
+                  <i class="fas fa-calendar-alt" data-toggle="tooltip" title="{{ ION_L['published_on']|e }}"></i>
+                  <span>{{ page.date|strftime(ION_DATE_FORMAT) }}</span>
+              </div>
+            {% endif %}
+
+            {% if is_show_meta_modified_date %}
+              <div class="meta">
+                  <i class="fas fa-edit" data-toggle="tooltip" title="{{ ION_L['edited_on']|e }}"></i>
+                  <span>{{ page.modified|strftime(ION_DATE_FORMAT) }}</span>
+              </div>
+            {% endif %}
+
+            {% if is_show_meta_tags %}
+              <div class="meta">
+                <i class="fas fa-tags" data-toggle="tooltip" title="{{ ION_L['tags']|e }}"></i>
+                {% for tag in page.tags|sort %}
+                  <span class="tag">
+                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                  </span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      {# /main-section #}
+
+      {% block extra_content_header %}{% endblock extra_content_header %}
+
+      {# main-section #}
+      {% if (ION_SHOW_TOC_ON_PAGE or page.toc_status == 'yes') and page.toc %}
+        <div class="main-section page-toc">
+          <h2>
+            <i class="fas fa-list"></i>
+            {{ ION_L['table_of_contents'] }}
+          </h2>
+          <nav class="toc">{{ page.toc }}</nav>
+        </div>
+      {% endif %}
+      {# /main-section #}
+
+      {# main-section #}
+      <div class="main-section page-content">
+        {{ page.content }}
+      </div>
+      {# /main-section #}
+
+      {% block extra_content_footer %}{% endblock extra_content_footer %}
+    </div>
+  </div>
+  {# /row #}
+{% endblock %}

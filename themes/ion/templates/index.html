@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ ION_L['homepage'] }} {% if articles_page.has_previous() %}- {{ ION_L['nth_page'].format(articles_page.number) }} {% endif %}- {{ super() }}{% endblock title %}
+{% block description %}{{ SITEDESCRIPTION|default('')|e }}{% endblock description %}
+
+{% block content %}
+  {# extra contents from hidden pages #}
+  {% for frontpage in hidden_pages|selectattr('is_frontpage', 'eq', 'yes') %}
+    {% if frontpage.autowrap == 'yes' %}
+      <div class="row">
+        <div class="col-md-12">
+          {{ frontpage.content }}
+        </div>
+      </div>
+    {% else %}
+      {{ frontpage.content }}
+    {% endif %}
+  {% endfor %}
+
+  {# latest articles #}
+  <div class="row">
+    <div class="col-md-12">
+      {% include 'component/latest_articles.html' %}
+    </div>
+  </div>
+{% endblock content %}

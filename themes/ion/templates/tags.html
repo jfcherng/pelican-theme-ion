@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ ION_TAGS_HEAD_TITLE }} - {{ super() }}{% endblock title %}
+{% block description %}{{ ION_TAGS_HEAD_DESCRIPTION }}{% endblock description %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-section archive-container">
+        <h2><a href="{{ SITEURL }}/tags.html">{{ ION_L['all_tags'] }}</a></h2>
+        <dl class="dl-horizontal">
+          {% for tag, articles in tags|sort %}
+            {% set articles_count = articles|count %}
+            <dt><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></dt>
+            <dd>
+              <span class="label label-primary">
+                {% if articles_count > 1 %}
+                  {{ ION_L['n_articles'].format(articles_count) }}
+                {% else %}
+                  {{ ION_L['n_article'].format(articles_count) }}
+                {% endif %}
+              </span>
+            </dd>
+          {% endfor %}
+        </dl>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

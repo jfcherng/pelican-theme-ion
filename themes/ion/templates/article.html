@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} - {{ super() }}{% endblock title %}
+{% block description %}{{ (article.description if article.description else article.content)|striptags|truncate(200)|e }}{% endblock description %}
+{% block keywords %}{{ article.tags|default([], true)|sort|join(',')|e }}{% endblock keywords %}
+
+{% block extra_head %}
+  <style>
+    .article-meta > .meta > .author:not(:last-child):after,
+    .article-meta > .meta > .tag:not(:last-child):after {
+        content: "{{ ION_L['multi_separator']|e }}";
+    }
+  </style>
+{% endblock extra_head %}
+
+{% block content %}
+  {# row #}
+  <div class="row">
+    <div class="col-md-12">
+      {# main-section #}
+      <div class="main-section article-head no-hx-decoration">
+        <h2 class="article-title">{{ article.title }}</h2>
+        {% set is_show_meta_authors        = ION_SHOW_AUTHORS_ON_ARTICLE        and article.authors %}
+        {% set is_show_meta_published_date = ION_SHOW_PUBLISHED_DATE_ON_ARTICLE and article.date %}
+        {% set is_show_meta_modified_date  = ION_SHOW_MODIFIED_DATE_ON_ARTICLE  and article.modified %}
+        {% set is_show_meta_category       = ION_SHOW_CATEGORY_ON_ARTICLE       and article.category %}
+        {% set is_show_meta_tags           = ION_SHOW_TAGS_ON_ARTICLE           and article.tags %}
+
+        {% if
+          is_show_meta_authors        or
+          is_show_meta_published_date or
+          is_show_meta_modified_date  or
+          is_show_meta_category       or
+          is_show_meta_tags
+        %}
+          <div class="article-meta">
+            {% if is_show_meta_authors %}
+              <div class="meta">
+                {% if article.authors|length >= 2 %}
+                  <i class="fas fa-users" data-toggle="tooltip" title="{{ ION_L['authors']|e }}"></i>
+                {% else %}
+                  <i class="fas fa-user" data-toggle="tooltip" title="{{ ION_L['author']|e }}"></i>
+                {% endif %}
+                {% for author in article.authors -%}
+                  <span class="author"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></span>
+                {%- endfor %}
+              </div>
+            {% endif %}
+
+            {% if is_show_meta_published_date %}
+              <div class="meta">
+                  <i class="fas fa-calendar-alt" data-toggle="tooltip" title="{{ ION_L['published_on']|e }}"></i>
+                  <span>{{ article.date|strftime(ION_DATE_FORMAT) }}</span>
+              </div>
+            {% endif %}
+
+            {% if is_show_meta_modified_date %}
+              <div class="meta">
+                  <i class="fas fa-edit" data-toggle="tooltip" title="{{ ION_L['edited_on']|e }}"></i>
+                  <span>{{ article.modified|strftime(ION_DATE_FORMAT) }}</span>
+              </div>
+            {% endif %}
+
+            {% if is_show_meta_category %}
+              <div class="meta">
+                  <i class="fas fa-folder-open" data-toggle="tooltip" title="{{ ION_L['categorized_as']|e }}"></i>
+                  <span><a href="{{ SITEURL }}/{{ category.url }}">{{ article.category|capitalize }}</a></span>
+              </div>
+            {% endif %}
+
+            {% if is_show_meta_tags %}
+              <div class="meta">
+                <i class="fas fa-tags" data-toggle="tooltip" title="{{ ION_L['tags']|e }}"></i>
+                {% for tag in article.tags|sort -%}
+                  <span class="tag"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></span>
+                {%- endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      {# /main-section #}
+
+      {% block extra_content_header %}{% endblock extra_content_header %}
+
+      {# main-section #}
+      {% if (ION_SHOW_TOC_ON_ARTICLE or article.toc_status == 'yes') and article.toc %}
+        <div class="main-section article-toc">
+          <h2>
+            <i class="fas fa-list"></i>
+            {{ ION_L['table_of_contents'] }}
+          </h2>
+          <nav class="toc">{{ article.toc }}</nav>
+        </div>
+      {% endif %}
+      {# /main-section #}
+
+      {# main-section #}
+      <div class="main-section article-content">
+        {{ article.content }}
+      </div>
+      {# /main-section #}
+
+      {% block extra_content_footer %}{% endblock extra_content_footer %}
+
+      {# main-section #}
+      {% if article.related_posts %}
+        <div class="main-section article-related">
+          <h2>{{ ION_L['related_articles'] }}</h2>
+          <dl class="dl-horizontal">
+          {% for related_post in article.related_posts %}
+            <dt>{{ related_post.date|strftime(ION_DATE_FORMAT) }}</dt>
+            <dd><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></dd>
+          {% endfor %}
+          </dl>
+        </div>
+      {% endif %}
+      {# /main-section #}
+
+      {% import 'common/disqus.html' as disqus %}
+      {{ disqus.disqus_html(DISQUS_SITENAME, SITEURL, ION_L, context=article) }}
+    </div>
+  </div>
+  {# /row #}
+{% endblock %}

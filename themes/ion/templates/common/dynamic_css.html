@@ -1,0 +1,35 @@
+{# determine the fonts #}
+{% set fonts_default = ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'] %}
+{% set fonts = ION_FONTS if ION_FONTS and ION_FONTS is iterable else [] %}
+{% if fonts is string %}{% set fonts = [fonts] %}{% endif %}
+
+{# determine the banner_image #}
+{% if article and article.banner_image %}
+  {% set banner_image = article.banner_image %}
+{% elif page and page.banner_image %}
+  {% set banner_image = page.banner_image %}
+{% elif ION_BANNER_IMAGE %}
+  {% set banner_image = SITEURL + '/' + ION_BANNER_IMAGE %}
+{% else %}
+  {% set banner_image = SITEURL + '/theme/images/banner.jpg' %}
+{% endif %}
+
+{# determine the footer_image #}
+{% if ION_FOOTER_IMAGE %}
+  {% set footer_image = SITEURL + '/' + ION_FOOTER_IMAGE %}
+{% else %}
+  {% set footer_image = '' %}
+{% endif %}
+
+<style>
+  /* <pre> is not applied here */
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    font-family: {{ '"' + (fonts + fonts_default)|join('","') + '"' }};
+  }
+  #banner {
+    background-image: url('{{ banner_image }}');
+  }
+  #footer {
+    background-image: url('{{ footer_image }}');
+  }
+</style>

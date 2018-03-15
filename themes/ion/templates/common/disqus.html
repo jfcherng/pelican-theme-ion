@@ -1,0 +1,37 @@
+{% macro disqus_html(DISQUS_SITENAME, SITEURL, ION_L, context=None) %}
+  {% if
+    DISQUS_SITENAME and SITEURL and
+    context and context.status != 'draft' and context.comment_status != 'no'
+  %}
+    <div class="main-section" id="comments">
+      <h2>
+        <i class="fas fa-comments"></i>
+        {{ ION_L['disqus_comments'] }}
+      </h2>
+      {{ disqus_html_official(DISQUS_SITENAME, SITEURL, context=context) }}
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{% macro disqus_html_official(DISQUS_SITENAME, SITEURL, context=None) %}
+  <div class="comments">
+    <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.language = "{{ DISQUS_LANGUAGE|default('en', true) }}";
+          this.page.url = '{{ SITEURL }}/{{ context.url }}';
+          // this.page.title = '{{ context.title }}';
+          this.page.identifier = '{{ context.disqus_identifier|default(context.url, true)|e }}';
+        };
+        (function() {
+          var d = document,
+              s = d.createElement('script');
+          s.src = 'https://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+          s.async = 1; // add async
+          s.setAttribute('data-timestamp', +new Date());
+          (d.body || d.head).appendChild(s); // prefer appending to body
+        })();
+      </script>
+    <noscript>Please enable JavaScript to view the comments.</noscript>
+  </div>
+{% endmacro %}
