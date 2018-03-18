@@ -1,6 +1,12 @@
 <div class="main-section archive-container">
   {% if DEFAULT_PAGINATION %}
-    <h2>{{ ION_L['all_articles'] }} {% if articles_page.has_previous() %}<small>- {{ ION_L['nth_page'].format(articles_page.number) }}</small>{% endif %}</h2>
+    <h2>
+      <i class="fas fa-bullhorn"></i>
+      {{ ION_L['all_articles'] }}
+      {% if articles_page.has_previous() %}
+        <small>- {{ ION_L['nth_page'].format(articles_page.number) }}</small>
+      {% endif %}
+    </h2>
     <dl class="dl-horizontal">
       {% if articles_page.object_list %}
         {% for article in articles_page.object_list %}
