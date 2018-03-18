@@ -496,10 +496,14 @@
 
 /* List */
 
+    ol,
+    ul {
+        margin: 0 0 2em 0;
+        padding-left: 2em;
+    }
+
     ol {
         list-style: decimal;
-        margin: 0 0 2em 0;
-        padding-left: 2.25em;
     }
 
         ol li {
@@ -508,8 +512,6 @@
 
     ul {
         list-style: disc;
-        margin: 0 0 2em 0;
-        padding-left: 2.25em;
     }
 
         ul li {
@@ -1235,6 +1237,10 @@ ul > li > ul > li > ul > li > ul > li > ul > li > ul {
 }
 #main-content a:hover {
     color: #f41;
+}
+#main-content ol li,
+#main-content ul li {
+    padding-left: 0;
 }
 #main-content .main-section > *:first-child {
     margin-top: 0;
