@@ -25,16 +25,20 @@
     {% if ION_ASSETS_MINIFY %}
       {% assets filters="cssmin", output="css/all.min.css",
         "css/pygment.css",
-        "css/style.css",
-        "css/style-xlarge.css"
+        "css/style.css"
       %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" />
       {% endassets %}
     {% else %}
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
-      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xlarge.css" />
     {% endif %}
+
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xlarge.css" media="screen and (max-width:1600px)" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-large.css" media="screen and (max-width:1280px)" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-medium.css" media="screen and (max-width:980px)" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-small.css" media="screen and (max-width:736px)" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xsmall.css" media="screen and (max-width:480px)" />
 
     {% include 'common/dynamic_css.html' %}
     <!-- /Stylesheets -->
