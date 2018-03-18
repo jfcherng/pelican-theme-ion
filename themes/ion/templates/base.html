@@ -4,6 +4,7 @@
     Theme Name: ION
     Theme Author: Jack Cherng <jfcherng@gmail.com>
     Source Codes: https://github.com/jfcherng/pelican-theme-ion
+    Referenced Site: https://templated.co/ion
   -->
   <head>
     <meta charset="utf-8">
@@ -185,8 +186,11 @@
             <li>
               {{
                 ION_L['theme_author_acknowledgment'].format(
-                  '<a href="https://github.com/jfcherng/pelican-theme-ion">ION</a>',
-                  '<a href="https://github.com/jfcherng">Jack Cherng</a>'
+                  brand = '<a href="https://github.com/jfcherng/pelican-theme-ion">ION</a>',
+                  author = ', '.join((
+                    '<a href="https://github.com/jfcherng">Jack Cherng</a>',
+                    '<a href="https://templated.co/ion">TEMPLATED</a>',
+                  )),
                 )
               }}
             </li>

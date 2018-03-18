@@ -6,7 +6,7 @@ ION_L['colon_space'] = ION_L['colon'] + ' '
 ION_L['multi_separator'] = ', '
 ION_L['n_article'] = '{} article'
 ION_L['n_articles'] = '{} articles'
-ION_L['theme_author_acknowledgment'] = 'Theme {0} &copy; {1}'
+ION_L['theme_author_acknowledgment'] = 'Theme {brand} &copy; {author}'
 
 # index.html
 ION_L['homepage'] = 'Homepage'

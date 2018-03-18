@@ -6,7 +6,7 @@ ION_L['colon_space'] = ION_L['colon']
 ION_L['multi_separator'] = '、'
 ION_L['n_article'] = '{} 篇文章'
 ION_L['n_articles'] = '{} 篇文章'
-ION_L['theme_author_acknowledgment'] = '皮肤 {0} &copy; {1}'
+ION_L['theme_author_acknowledgment'] = '皮肤 {brand} &copy; {author}'
 
 # index.html
 ION_L['homepage'] = '首页'
