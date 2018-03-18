@@ -48,6 +48,7 @@ ION_SHOW_TAGS_ON_PAGE = True
 ION_SHOW_TOC_ON_PAGE = False
 
 ION_BACKGROUND_PARTICLE = False
+ION_SCROLL_UP_WIDGET = True
 ION_HEADER_TITLE = ''
 ION_BANNER_IMAGE = 'theme/images/banner.jpg'
 ION_BANNER_TITLE = 'This is the banner title.'
