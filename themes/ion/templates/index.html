@@ -4,6 +4,13 @@
 {% block description %}{{ SITEDESCRIPTION|default('')|e }}{% endblock description %}
 
 {% block content %}
+  {# latest articles #}
+  <div class="row">
+    <div class="col-md-12">
+      {% include 'component/latest_articles.html' %}
+    </div>
+  </div>
+
   {# extra contents from hidden pages #}
   {% for frontpage in hidden_pages|selectattr('is_frontpage', 'eq', 'yes') %}
     {% if frontpage.autowrap == 'yes' %}
@@ -16,11 +23,4 @@
       {{ frontpage.content }}
     {% endif %}
   {% endfor %}
-
-  {# latest articles #}
-  <div class="row">
-    <div class="col-md-12">
-      {% include 'component/latest_articles.html' %}
-    </div>
-  </div>
 {% endblock content %}
