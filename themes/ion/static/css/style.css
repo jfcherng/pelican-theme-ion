@@ -1170,6 +1170,10 @@
     margin: -3.5em 0 0;
 }
 
+.break-word {
+    word-break: break-word;
+}
+
 /* prevent p-tag from being un-clickable because of being under :target:before */
 
 p {
