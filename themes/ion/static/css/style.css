@@ -1219,27 +1219,16 @@ ul > li > ul > li > ul > li > ul > li > ul > li > ul {
 
 #banner .inner h2,
 #banner .inner p {
-    text-shadow: 2px 2px #000;
+    text-shadow: 2px 2px 6px #000;
 }
 #banner .inner h2 {
     font-weight: bold;
 }
 
-.main-section {
-    background-color: #fff;
-    box-shadow: 0 0 28px -4px rgba(0, 0, 0, 0.15);
-    padding: 30px;
-    margin-bottom: 2em;
-    width: 100%;
-}
-
-/* we dont need margin-bottom for the last .main-section which is before the footer */
-.row:last-child > [class*="col-"] > .main-section:last-child {
-    margin-bottom: 0;
-}
-
 #main-content {
     background-color: #e2e2e2;
+    /* fix for the margin-bottom of the last .main-section */
+    margin-bottom: -2em;
 }
 #main-content a {
     text-decoration: none;
@@ -1251,61 +1240,69 @@ ul > li > ul > li > ul > li > ul > li > ul > li > ul {
 #main-content ul li {
     padding-left: 0;
 }
-#main-content .main-section > *:first-child {
+.main-section > *:first-child {
     margin-top: 0;
 }
 #main-content .section:last-child,
-#main-content .main-section > *:last-child,
+.main-section > *:last-child,
 #toc > ul:last-child {
     margin-bottom: 0;
 }
-#main-content .main-section:not(.no-hx-decoration) h1,
-#main-content .main-section:not(.no-hx-decoration) h2,
-#main-content .main-section:not(.no-hx-decoration) h3,
-#main-content .main-section:not(.no-hx-decoration) h4,
-#main-content .main-section:not(.no-hx-decoration) .h1,
-#main-content .main-section:not(.no-hx-decoration) .h2,
-#main-content .main-section:not(.no-hx-decoration) .h3,
-#main-content .main-section:not(.no-hx-decoration) .h4 {
+.main-section:not(.no-hx-decoration) h1,
+.main-section:not(.no-hx-decoration) h2,
+.main-section:not(.no-hx-decoration) h3,
+.main-section:not(.no-hx-decoration) h4,
+.main-section:not(.no-hx-decoration) .h1,
+.main-section:not(.no-hx-decoration) .h2,
+.main-section:not(.no-hx-decoration) .h3,
+.main-section:not(.no-hx-decoration) .h4 {
     color: #000;
     border-bottom: 3px solid #e4e4e4;
     padding-bottom: 10px;
     position: relative;
     width: 100%;
 }
-#main-content .main-section:not(.no-hx-decoration) h1::after,
-#main-content .main-section:not(.no-hx-decoration) h2::after,
-#main-content .main-section:not(.no-hx-decoration) h3::after,
-#main-content .main-section:not(.no-hx-decoration) h4::after,
-#main-content .main-section:not(.no-hx-decoration) .h1::after,
-#main-content .main-section:not(.no-hx-decoration) .h2::after,
-#main-content .main-section:not(.no-hx-decoration) .h3::after,
-#main-content .main-section:not(.no-hx-decoration) .h4::after {
+.main-section:not(.no-hx-decoration) h1::after,
+.main-section:not(.no-hx-decoration) h2::after,
+.main-section:not(.no-hx-decoration) h3::after,
+.main-section:not(.no-hx-decoration) h4::after,
+.main-section:not(.no-hx-decoration) .h1::after,
+.main-section:not(.no-hx-decoration) .h2::after,
+.main-section:not(.no-hx-decoration) .h3::after,
+.main-section:not(.no-hx-decoration) .h4::after {
     content: "";
     position: absolute;
     bottom: -3px;
     left: 0;
     height: 3px;
 }
-#main-content .main-section:not(.no-hx-decoration) h1::after,
-#main-content .main-section:not(.no-hx-decoration) .h1::after {
+.main-section:not(.no-hx-decoration) h1::after,
+.main-section:not(.no-hx-decoration) .h1::after {
     width: 50%;
     background-color: #444;
 }
-#main-content .main-section:not(.no-hx-decoration) h2::after,
-#main-content .main-section:not(.no-hx-decoration) .h2::after {
+.main-section:not(.no-hx-decoration) h2::after,
+.main-section:not(.no-hx-decoration) .h2::after {
     width: 40%;
     background-color: #d44;
 }
-#main-content .main-section:not(.no-hx-decoration) h3::after,
-#main-content .main-section:not(.no-hx-decoration) .h3::after {
+.main-section:not(.no-hx-decoration) h3::after,
+.main-section:not(.no-hx-decoration) .h3::after {
     width: 30%;
     background-color: #4d4;
 }
-#main-content .main-section:not(.no-hx-decoration) h4::after,
-#main-content .main-section:not(.no-hx-decoration) .h4::after {
+.main-section:not(.no-hx-decoration) h4::after,
+.main-section:not(.no-hx-decoration) .h4::after {
     width: 20%;
     background-color: #44d;
+}
+
+.main-section {
+    background-color: #fff;
+    box-shadow: 0 0 28px -4px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    margin-bottom: 2em;
+    width: 100%;
 }
 
 table.footnote {
