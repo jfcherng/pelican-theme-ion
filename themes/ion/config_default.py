@@ -61,3 +61,4 @@ ION_COPYRIGHT = 'Copyright &copy; {} {}'.format(
     ION_COPYRIGHT_YEAR,
     '<a href="https://github.com/jfcherng">Jack Cherng</a>'
 )
+ION_EXTRA_BOTTOM_HTML = ''
