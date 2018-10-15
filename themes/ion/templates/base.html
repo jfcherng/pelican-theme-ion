@@ -20,19 +20,20 @@
     <!-- /Icons -->
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-
     {% if ION_ASSETS_MINIFY %}
       {% assets filters="cssmin", output="css/all.min.css",
-        "css/bootstrap-4-utilities.min.css",
+        "css/fontawesome-all.css",
+        "css/bootstrap-3.3.7.min.css",
+        "css/bootstrap-4-utilities.css",
         "css/pygment.css",
         "css/style.css"
       %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" />
       {% endassets %}
     {% else %}
-      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-4-utilities.min.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/fontawesome-all.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-3.3.7.min.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-4-utilities.css" />
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
     {% endif %}
@@ -47,13 +48,14 @@
     <!-- /Stylesheets -->
 
     <!-- Scripts -->
-    <script> var SITEURL = "{{ SITEURL }}"; </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>var SITEURL = '{{ SITEURL }}';</script>
     <!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.min.js"></script><![endif]-->
 
     {% if ION_ASSETS_MINIFY %}
       {% assets filters="jsmin", output="js/all.min.js",
+        "js/jquery-3.3.1.min.js",
+        "js/bootstrap-3.3.7.min.js",
+        "js/jquery.scrollUp-2.4.1.js",
         "js/skel_modified.js",
         "js/skel-layers.min.js",
         "js/init.js"
@@ -61,6 +63,9 @@
         <script type="text/javascript" src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
       {% endassets %}
     {% else %}
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/bootstrap-3.3.7.min.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.scrollUp-2.4.1.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel_modified.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-layers.min.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/init.js"></script>
@@ -81,24 +86,23 @@
           background: url({{ SITEURL }}/theme/images/top.png) no-repeat;
         }
       </style>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/scrollup/2.4.1/jquery.scrollUp.min.js"></script>
       <script type="text/javascript">
         $(function () {
           $.scrollUp({
-            scrollName: 'scrollUp',      // Element ID
-            scrollDistance: 100,         // Distance from top/bottom before showing element (px)
-            scrollFrom: 'top',           // 'top' or 'bottom'
-            scrollSpeed: 300,            // Speed back to top (ms)
-            easingType: 'linear',        // Scroll to top easing (see http://easings.net/)
-            animation: 'fade',           // Fade, slide, none
-            animationSpeed: 200,         // Animation speed (ms)
-            scrollTrigger: false,        // Set a custom triggering element. Can be an HTML string or jQuery object
-            scrollTarget: false,         // Set a custom target element for scrolling to. Can be element or number
+            scrollName: 'scrollUp', // Element ID
+            scrollDistance: 100, // Distance from top/bottom before showing element (px)
+            scrollFrom: 'top', // 'top' or 'bottom'
+            scrollSpeed: 300, // Speed back to top (ms)
+            easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+            animation: 'fade', // Fade, slide, none
+            animationSpeed: 200, // Animation speed (ms)
+            scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+            scrollTarget: false, // Set a custom target element for scrolling to. Can be element or number
             scrollText: 'Scroll to top', // Text for element, can contain HTML
-            scrollTitle: true,           // Set a custom <a> title if required.
-            scrollImg: true,             // Set true to use image
-            // activeOverlay: '#FF0000',        // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-            zIndex: 2147483647           // Z-Index for the overlay
+            scrollTitle: true, // Set a custom <a> title if required.
+            scrollImg: true, // Set true to use image
+            // activeOverlay: '#FF0000', // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+            zIndex: 2147483647 // Z-Index for the overlay
           });
         });
       </script>
@@ -211,7 +215,7 @@
           background: transparent;
         }
       </style>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/particles-2.0.0.min.js"></script>
       <script type="text/javascript">
         particlesJS("particles-js", {
           particles: {
