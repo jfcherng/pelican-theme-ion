@@ -1,4 +1,4 @@
-SITEURL = typeof SITEURL === 'undefined' ? '.' : SITEURL;
+SITEURL = SITEURL == null ? '.' : SITEURL;
 
 /**
  * responsive
