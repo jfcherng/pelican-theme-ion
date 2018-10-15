@@ -25,12 +25,14 @@
 
     {% if ION_ASSETS_MINIFY %}
       {% assets filters="cssmin", output="css/all.min.css",
+        "css/bootstrap-4-utilities.min.css",
         "css/pygment.css",
         "css/style.css"
       %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" />
       {% endassets %}
     {% else %}
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-4-utilities.min.css" />
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
     {% endif %}
