@@ -57,4 +57,5 @@ ION_FOOTER_HTML = ""  # HTML before fotter copyright
 ION_COPYRIGHT = "Copyright &copy; {} {}".format(
     ION_COPYRIGHT_YEAR, '<a href="https://github.com/jfcherng">Jack Cherng</a>'
 )
+ION_EXTRA_HEAD_HTML = ""
 ION_EXTRA_BOTTOM_HTML = ""
