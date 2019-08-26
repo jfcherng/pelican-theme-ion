@@ -37,9 +37,9 @@
             {% if is_show_meta_authors %}
               <div class="meta">
                 {% if article.authors|length >= 2 %}
-                  <i class="fas fa-users" data-toggle="tooltip" title="{{ ION_L['authors']|e }}"></i>
+                  <i class="fas fa-fw fa-users" data-toggle="tooltip" title="{{ ION_L['authors']|e }}"></i>
                 {% else %}
-                  <i class="fas fa-user" data-toggle="tooltip" title="{{ ION_L['author']|e }}"></i>
+                  <i class="fas fa-fw fa-user" data-toggle="tooltip" title="{{ ION_L['author']|e }}"></i>
                 {% endif %}
                 {% for author in article.authors -%}
                   <span class="author"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></span>
@@ -49,28 +49,28 @@
 
             {% if is_show_meta_published_date %}
               <div class="meta">
-                  <i class="fas fa-calendar-alt" data-toggle="tooltip" title="{{ ION_L['published_on']|e }}"></i>
+                  <i class="fas fa-fw fa-calendar-alt" data-toggle="tooltip" title="{{ ION_L['published_on']|e }}"></i>
                   <span>{{ article.date|strftime(ION_DATE_FORMAT) }}</span>
               </div>
             {% endif %}
 
             {% if is_show_meta_modified_date %}
               <div class="meta">
-                  <i class="fas fa-edit" data-toggle="tooltip" title="{{ ION_L['edited_on']|e }}"></i>
+                  <i class="fas fa-fw fa-edit" data-toggle="tooltip" title="{{ ION_L['edited_on']|e }}"></i>
                   <span>{{ article.modified|strftime(ION_DATE_FORMAT) }}</span>
               </div>
             {% endif %}
 
             {% if is_show_meta_category %}
               <div class="meta">
-                  <i class="fas fa-folder-open" data-toggle="tooltip" title="{{ ION_L['categorized_as']|e }}"></i>
+                  <i class="fas fa-fw fa-folder-open" data-toggle="tooltip" title="{{ ION_L['categorized_as']|e }}"></i>
                   <span><a href="{{ SITEURL }}/{{ category.url }}">{{ article.category|capitalize }}</a></span>
               </div>
             {% endif %}
 
             {% if is_show_meta_tags %}
               <div class="meta">
-                <i class="fas fa-tags" data-toggle="tooltip" title="{{ ION_L['tags']|e }}"></i>
+                <i class="fas fa-fw fa-tags" data-toggle="tooltip" title="{{ ION_L['tags']|e }}"></i>
                 {% for tag in article.tags|sort -%}
                   <span class="tag"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></span>
                 {%- endfor %}
@@ -87,7 +87,7 @@
       {% if (ION_SHOW_TOC_ON_ARTICLE or article.toc_status == 'yes') and article.toc %}
         <div class="main-section article-toc">
           <h2>
-            <i class="fas fa-list"></i>
+            <i class="fas fa-fw fa-list"></i>
             {{ ION_L['table_of_contents'] }}
           </h2>
           <nav class="toc">{{ article.toc }}</nav>
