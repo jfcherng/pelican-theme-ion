@@ -210,8 +210,10 @@
     {% endblock footer %}
     <!-- /Footer -->
 
-    <!-- Package: Particle -->
+    {% include 'common/google_analytics.html' %}
+
     {% if ION_BACKGROUND_PARTICLE %}
+      <!-- Package: Particle -->
       <div id="particles-js"></div>
       <style type="text/css">
         body,
@@ -281,8 +283,8 @@
           retina_detect: true
         });
       </script>
+      <!-- /Package: Particle -->
     {% endif %}
-    <!-- /Package: Particle -->
 
     <!-- Other HTML content -->
     {{ ION_EXTRA_BOTTOM_HTML }}
