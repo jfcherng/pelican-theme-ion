@@ -44,6 +44,11 @@
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-small.css" media="screen and (max-width:736px)" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xsmall.css" media="screen and (max-width:480px)" />
 
+    <style type="text/css">
+      html { background: #e2e2e2; }
+      .body-loading { display: none; }
+    </style>
+
     {% include 'common/dynamic_css.html' %}
     <!-- /Stylesheets -->
 
@@ -55,7 +60,7 @@
     <!-- /Other HTML content -->
   </head>
 
-  <body id="top">
+  <body class="body-loading" id="top">
     <!-- Header -->
     {% block header %}
       <header id="header" class="skel-layers-fixed">
@@ -176,6 +181,8 @@
     {% include 'common/scroll_up_widget.html' %}
     {% include 'common/particle_js.html' %}
     {% include 'common/google_analytics.html' %}
+
+    <script>$('body').removeClass('body-loading');</script>
     <!-- /Scripts -->
 
     <!-- Other HTML content -->
