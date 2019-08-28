@@ -7,7 +7,7 @@
     Referenced Site: https://templated.co/ion
   -->
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% block description %}{% endblock description %}">
@@ -71,46 +71,11 @@
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/init.js"></script>
     {% endif %}
 
+    {% include 'common/scroll_up_widget.html' %}
     {% include 'common/google_analytics.html' %}
     <!-- /Scripts -->
 
-    <!-- Package: Scroll Up Widget -->
-    {% if ION_SCROLL_UP_WIDGET %}
-      <style type="text/css">
-        #scrollUp {
-          opacity: 0.8;
-          bottom: 20px;
-          right: 20px;
-          width: 38px;
-          height: 38px;
-          background: url({{ SITEURL }}/theme/images/top.png) no-repeat;
-        }
-      </style>
-      <script type="text/javascript">
-        $(function () {
-          $.scrollUp({
-            scrollName: 'scrollUp', // Element ID
-            scrollDistance: 100, // Distance from top/bottom before showing element (px)
-            scrollFrom: 'top', // 'top' or 'bottom'
-            scrollSpeed: 300, // Speed back to top (ms)
-            easingType: 'linear', // Scroll to top easing (see http://easings.net/)
-            animation: 'fade', // Fade, slide, none
-            animationSpeed: 200, // Animation speed (ms)
-            scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
-            scrollTarget: false, // Set a custom target element for scrolling to. Can be element or number
-            scrollText: 'Scroll to top', // Text for element, can contain HTML
-            scrollTitle: true, // Set a custom <a> title if required.
-            scrollImg: true, // Set true to use image
-            // activeOverlay: '#FF0000', // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-            zIndex: 2147483647 // Z-Index for the overlay
-          });
-        });
-      </script>
-    {% endif %}
-    <!-- /Package: Scroll Up Widget -->
-
     {% include 'common/feeds.html' %}
-
     {% block extra_head %}{% endblock extra_head %}
 
     <!-- Other HTML content -->
@@ -210,81 +175,7 @@
     {% endblock footer %}
     <!-- /Footer -->
 
-    {% include 'common/google_analytics.html' %}
-
-    {% if ION_BACKGROUND_PARTICLE %}
-      <!-- Package: Particle -->
-      <div id="particles-js"></div>
-      <style type="text/css">
-        body,
-        #main-content {
-          background: transparent;
-        }
-      </style>
-      <script type="text/javascript" src="{{ SITEURL }}/theme/js/particles-2.0.0.min.js"></script>
-      <script type="text/javascript">
-        particlesJS("particles-js", {
-          particles: {
-            number: {
-              value: 80,
-              density: {
-                enable: true,
-                value_area: 700
-              }
-            },
-            shape: {
-              type: ["circle", "triangle", "edge"]
-            },
-            color: {
-              value: "#c2c2c2"
-            },
-            opacity: {
-              value: 0.8,
-              random: true,
-              anim: {
-                enable: false,
-                speed: 1,
-                opacity_min: 0.2,
-                sync: false
-              }
-            },
-            size: {
-              value: 3,
-              random: false,
-              anim: {
-                enable: false,
-                speed: 10,
-                size_min: 1,
-                sync: false
-              }
-            },
-            line_linked: {
-              enable: true,
-              distance: 150,
-              color: "#c2c2c2",
-              opacity: 0.5,
-              width: 1
-            },
-            move: {
-              enable: true,
-              speed: 2,
-              direction: "none",
-              random: false,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-              attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200
-              }
-            }
-          },
-          retina_detect: true
-        });
-      </script>
-      <!-- /Package: Particle -->
-    {% endif %}
+    {% include 'common/particle_js.html' %}
 
     <!-- Other HTML content -->
     {{ ION_EXTRA_BOTTOM_HTML }}

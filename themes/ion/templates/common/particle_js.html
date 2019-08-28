@@ -1,0 +1,73 @@
+{% if ION_BACKGROUND_PARTICLE %}
+<!-- Package: Particle -->
+<div id="particles-js"></div>
+<style type="text/css">
+  body,
+  #main-content {
+    background: transparent;
+  }
+</style>
+<script type="text/javascript" src="{{ SITEURL }}/theme/js/particles-2.0.0.min.js"></script>
+<script type="text/javascript">
+  particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 700
+        }
+      },
+      shape: {
+        type: ["circle", "triangle", "edge"]
+      },
+      color: {
+        value: "#c2c2c2"
+      },
+      opacity: {
+        value: 0.8,
+        random: true,
+        anim: {
+          enable: false,
+          speed: 1,
+          opacity_min: 0.2,
+          sync: false
+        }
+      },
+      size: {
+        value: 3,
+        random: false,
+        anim: {
+          enable: false,
+          speed: 10,
+          size_min: 1,
+          sync: false
+        }
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#c2c2c2",
+        opacity: 0.5,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200
+        }
+      }
+    },
+    retina_detect: true
+  });
+</script>
+<!-- /Package: Particle -->
+{% endif %}
