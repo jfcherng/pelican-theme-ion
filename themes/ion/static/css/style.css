@@ -1360,6 +1360,11 @@ table.footnote tbody tr:nth-child(2n+1) {
     padding: 0 8px;
 }
 
+.article-content .section,
+.page-content .section {
+  margin-bottom: 2em;
+}
+
 .figure > .caption {
     text-align: center;
 }
