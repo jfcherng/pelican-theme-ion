@@ -33,7 +33,7 @@ skel.init({
         },
         // Large.
         large: {
-            range: '-1280',
+            range: '-1200',
             // href: SITEURL + '/theme/css/style-large.css',
             containers: 960,
             grid: {
@@ -47,7 +47,7 @@ skel.init({
         },
         // Medium.
         medium: {
-            range: '-980',
+            range: '-992',
             // href: SITEURL + '/theme/css/style-medium.css',
             containers: '95%',
             grid: {
@@ -56,7 +56,7 @@ skel.init({
         },
         // Small.
         small: {
-            range: '-736',
+            range: '-768',
             // href: SITEURL + '/theme/css/style-small.css',
             containers: '95%',
             grid: {
