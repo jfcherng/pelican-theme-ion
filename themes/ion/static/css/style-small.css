@@ -105,3 +105,13 @@
                 #footer .project-info li.logo {
                     margin-bottom: 20px;
                 }
+
+/* jfcherng */
+
+dl.dl-horizontal > dt {
+  margin-bottom: 0.3em;
+}
+
+dl.dl-horizontal > dd {
+  margin-bottom: 1em;
+}
