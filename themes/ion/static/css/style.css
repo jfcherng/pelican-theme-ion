@@ -1339,10 +1339,11 @@ table.footnote tbody tr:nth-child(2n+1) {
 .article-title,
 .page-title {
     color: #f41;
-    font-size: 1.8em;
-    line-height: 1.8em;
+    font-size: 1.75em;
+    line-height: 1.75em;
     text-align: center;
     margin-bottom: 0;
+    word-break: break-word;
 }
 
 .article-meta,

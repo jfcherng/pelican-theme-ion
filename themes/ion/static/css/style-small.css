@@ -108,6 +108,11 @@
 
 /* jfcherng */
 
+.article-title,
+.page-title {
+  font-size: 1.45em;
+}
+
 dl.dl-horizontal > dt {
   margin-bottom: 0.3em;
 }
