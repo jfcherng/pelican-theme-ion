@@ -30,7 +30,7 @@ ION_COPYRIGHT_YEAR = "-".join(map(str, sorted({ION_COPYRIGHT_YEAR_BASE, int(time
 
 ION_ASSETS_MINIFY = False
 ION_FONTS = []
-ION_GOOGLE_ANALYTICS  = ""
+ION_GOOGLE_ANALYTICS = ""
 # https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
 ION_DATE_FORMAT = "%Y/%m/%d"
 ION_SHOW_AUTHORS_ON_ARTICLE = True
