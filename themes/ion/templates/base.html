@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ DEFAULT_LANG }}">
+<html lang="{{ DEFAULT_LANG|default('en-us') }}">
   <!--
     Theme Name: ION
     Theme Author: Jack Cherng <jfcherng@gmail.com>
@@ -19,14 +19,25 @@
     <link rel="apple-touch-icon" href="{{ SITEURL }}/apple-touch-icon.png" />
     <!-- /Icons -->
 
+    <!-- Site information -->
+    <script>
+      var SITEURL = '{{ SITEURL }}';
+    </script>
+    <!-- /Site information -->
+
     <!-- Stylesheets -->
     {% if ION_ASSETS_MINIFY %}
-      {% assets filters="cssmin", output="css/all.min.css",
+      {% assets filters="cssmin", output="css/all.%(version)s.css",
         "css/fontawesome-all.css",
         "css/bootstrap-3.4.1.min.css",
         "css/bootstrap-4-utilities.css",
         "css/pygment.css",
-        "css/style.css"
+        "css/style.css",
+        "css/style-xlarge.css",
+        "css/style-large.css",
+        "css/style-medium.css",
+        "css/style-small.css",
+        "css/style-xsmall.css"
       %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" />
       {% endassets %}
@@ -36,18 +47,12 @@
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-4-utilities.css" />
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xlarge.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-large.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-medium.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-small.css" />
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xsmall.css" />
     {% endif %}
-
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xlarge.css" media="screen and (max-width:1600px)" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-large.css" media="screen and (max-width:1200px)" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-medium.css" media="screen and (max-width:992px)" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-small.css" media="screen and (max-width:768px)" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style-xsmall.css" media="screen and (max-width:480px)" />
-
-    <style type="text/css">
-      html { background: #e2e2e2; }
-      .body-loading { display: none; }
-    </style>
 
     {% include 'common/dynamic_css.html' %}
     <!-- /Stylesheets -->
@@ -60,7 +65,7 @@
     <!-- /Other HTML content -->
   </head>
 
-  <body class="body-loading" id="top">
+  <body id="top">
     <!-- Header -->
     {% block header %}
       <header id="header" class="skel-layers-fixed">
@@ -153,37 +158,36 @@
     <!-- /Footer -->
 
     <!-- Scripts -->
-    <script>var SITEURL = '{{ SITEURL }}';</script>
     <!--[if lte IE 8]><script src="{{ SITEURL }}/theme/js/html5shiv.min.js"></script><![endif]-->
 
     {% if ION_ASSETS_MINIFY %}
-      {% assets filters="jsmin", output="js/all.min.js",
+      {% assets filters="jsmin", output="js/all.%(version)s.js",
         "js/jquery-3.4.1.min.js",
-        "js/bootstrap-3.4.1.min.js",
-        "js/skel_modified.js",
+        "js/skel-modified.js",
         "js/skel-layers.min.js",
-        "js/init.js",
+        "js/skel-init.js",
+        "js/bootstrap-3.4.1.min.js",
+        "js/jquery.scrollUp-2.4.1.js",
         "js/instant.page.js",
-        "js/jquery.scrollUp-2.4.1.js"
+        "js/init.js"
       %}
         <script type="text/javascript" src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
       {% endassets %}
     {% else %}
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-3.4.1.min.js"></script>
-      <script type="text/javascript" src="{{ SITEURL }}/theme/js/bootstrap-3.4.1.min.js"></script>
-      <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel_modified.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-modified.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-layers.min.js"></script>
-      <script type="text/javascript" src="{{ SITEURL }}/theme/js/init.js"></script>
-      <script type="text/javascript" src="{{ SITEURL }}/theme/js/instant.page.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-init.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/bootstrap-3.4.1.min.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.scrollUp-2.4.1.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/instant.page.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/init.js"></script>
     {% endif %}
 
     {% include 'common/scroll_up_widget.html' %}
     {% include 'common/particle_js.html' %}
     {% include 'common/google_analytics.html' %}
-
-    <script>$('body').removeClass('body-loading');</script>
-    <!-- /Scripts -->
+    <!-- /Scripts Post -->
 
     <!-- Other HTML content -->
     {{ ION_EXTRA_BOTTOM_HTML }}

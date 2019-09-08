@@ -4,119 +4,134 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
-/* fix anchor top margin to be aligned with the fixed header */
+@media screen and (max-width:768px) {
 
-    :target:before {
-        height: 0em;
-        margin: -0em 0 0;
-    }
+  /* prevent from FOUC */
+  .container {
+    width: 95%;
+  }
 
-/* Basic */
+  /* fix anchor top margin to be aligned with the fixed header */
 
-    body, input, select, textarea {
-        font-size: 12pt;
-    }
+  :target:before {
+    height: 0em;
+    margin: -0em 0 0;
+  }
 
-    h2, .h2 {
-        font-size: 1.35em;
-        line-height: 1.5em;
-    }
+  /* Basic */
 
-    h3, .h3 {
-        font-size: 1.2em;
-        line-height: 1.5em;
-    }
+  body,
+  input,
+  select,
+  textarea {
+    font-size: 12pt;
+  }
 
-    h4, .h4 {
-        font-size: 1em;
-        line-height: 1.5em;
-    }
+  h2,
+  .h2 {
+    font-size: 1.35em;
+    line-height: 1.5em;
+  }
 
-/* Section/Article */
+  h3,
+  .h3 {
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
 
-    header.major {
-        width: 90%;
-        margin: 0 auto;
-    }
+  h4,
+  .h4 {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
 
-        header.major h2 {
-            font-size: 1.5em;
-        }
+  /* Section/Article */
 
-        header.major h2 + p {
-            font-size: 1.25em;
-            margin: -0.5em 0 2em 0;
-        }
+  header.major {
+    width: 90%;
+    margin: 0 auto;
+  }
 
-/* Wrapper */
+  header.major h2 {
+    font-size: 1.5em;
+  }
 
-    .wrapper {
-        padding: 3em 0 3em 0;
-    }
+  header.major h2 + p {
+    font-size: 1.25em;
+    margin: -0.5em 0 2em 0;
+  }
 
-/* Banner */
+  /* Wrapper */
 
-    #banner {
-        padding: 3em 2em 3em 2em;
-    }
+  .wrapper {
+    padding: 3em 0 3em 0;
+  }
 
-        #banner h2 {
-            font-size: 2em;
-        }
+  /* Banner */
 
-            #banner h2 .title-extra {
-                font-size: 1rem;
-            }
+  #banner {
+    padding: 3em 2em 3em 2em;
+  }
 
-        #banner p {
-            font-size: 1.25em;
-        }
+  #banner h2 {
+    font-size: 2em;
+  }
 
-/* Main */
+  #banner h2 .title-extra {
+    font-size: 1rem;
+  }
 
-    #main {
-        padding: 4em 0 0 0;
-    }
+  #banner p {
+    font-size: 1.25em;
+  }
 
-/* Footer */
+  /* Main */
 
-    #footer {
-        padding: 2em 0;
-    }
+  #main {
+    padding: 4em 0 0 0;
+  }
 
-        #footer .copyright,
-        #footer .project-info {
-            text-align: left;
-        }
+  /* Footer */
 
-            #footer .project-info li {
-                width: 100%;
-            }
+  #footer {
+    padding: 2em 0;
+  }
 
-            #footer .copyright li,
-            #footer .project-info li {
-                border-left: 0;
-                margin-left: 0;
-                padding-left: 0;
-                display: block;
-            }
+  #footer .copyright,
+  #footer .project-info {
+    text-align: left;
+  }
 
-                #footer .copyright li.logo,
-                #footer .project-info li.logo {
-                    margin-bottom: 20px;
-                }
+  #footer .project-info li {
+    width: 100%;
+  }
 
-/* jfcherng */
+  #footer .copyright li,
+  #footer .project-info li {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+    display: block;
+  }
 
-.article-title,
-.page-title {
-  font-size: 1.45em;
-}
+  #footer .copyright li.logo,
+  #footer .project-info li.logo {
+    margin-bottom: 20px;
+  }
 
-dl.dl-horizontal > dt {
-  margin-bottom: 0.3em;
-}
+  /* jfcherng */
 
-dl.dl-horizontal > dd {
-  margin-bottom: 1em;
+  .article-title,
+  .page-title {
+    font-size: 1.45em;
+  }
+
+  dl.dl-horizontal > dt {
+    margin-bottom: 0.3em;
+  }
+
+  dl.dl-horizontal > dd {
+    margin-bottom: 1em;
+  }
+
 }

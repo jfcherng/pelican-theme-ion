@@ -4,19 +4,31 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
-/* Basic */
+@media screen and (max-width:1600px) {
 
-    body, input, select, textarea {
-        font-size: 14pt;
-    }
+  /* prevent from FOUC */
+  .container {
+    width: 1200px;
+  }
 
-/* Header */
-            #header h1 img {
-                max-height: 35px;
-            }
+  /* Basic */
 
-/* Banner */
+  body,
+  input,
+  select,
+  textarea {
+    font-size: 14pt;
+  }
 
-    #banner {
-        padding: 3em 0;
-    }
+  /* Header */
+  #header h1 img {
+    max-height: 35px;
+  }
+
+  /* Banner */
+
+  #banner {
+    padding: 3em 0;
+  }
+
+}
