@@ -14,9 +14,7 @@ https://ecsme.ee.nthu.edu.tw
 
 ## Installation
 
-You may install dependencies via the following commands:
-
-- `$ python3 -m pip install -U -r requirements.txt`
+You can install dependencies via `$ python3 -m pip install -U -r requirements.txt`.
 
 
 ## Used Pelican Plugins
@@ -26,7 +24,7 @@ PLUGINS = [
     "assets",
     "headerid", # must before "bootstrap-rst"
     "bootstrap-rst",
-    "pelican-toc", # https://github.com/ingwinlu/pelican-toc
+    "pelican-toc", # modified from https://github.com/ingwinlu/pelican-toc
     "related_posts",
 ]
 ```
