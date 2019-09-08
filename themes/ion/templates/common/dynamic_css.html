@@ -27,7 +27,14 @@
     font-family: {{ '"' + (fonts + fonts_default)|join('","') + '"' }};
   }
   #banner {
-    background-image: url({{ banner_image }});
+    /* dim the background image */
+    background-image:
+      linear-gradient(
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.05)
+      ),
+      url({{ banner_image }});
   }
   #footer {
     background-image: url({{ footer_image }});
