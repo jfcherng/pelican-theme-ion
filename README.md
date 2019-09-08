@@ -1,16 +1,25 @@
-# Demo
+# Pelican Theme: ION
+
+<a href="https://travis-ci.org/jfcherng/pelican-theme-ion"><img alt="Travis (.org) branch" src="https://img.shields.io/travis/jfcherng/pelican-theme-ion/master?style=flat-square"></a>
+<a href="https://github.com/jfcherng/pelican-theme-ion/tags"><img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/tag/jfcherng/pelican-theme-ion?style=flat-square&logo=github"></a>
+<a href="https://github.com/jfcherng/pelican-theme-ion/blob/master/LICENSE"><img alt="Project license" src="https://img.shields.io/github/license/jfcherng/pelican-theme-ion?style=flat-square&logo=github"></a>
+<a href="https://github.com/jfcherng/pelican-theme-ion/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/jfcherng/pelican-theme-ion?style=flat-square&logo=github"></a>
+<a href="https://www.paypal.me/jfcherng/5usd" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-blue.svg?style=flat-square&logo=paypal"></a>
+
+
+## Demo
 
 https://ecsme.ee.nthu.edu.tw
 
 
-# Installation
+## Installation
 
 You may install dependencies via the following commands:
 
 - `$ python3 -m pip install -U -r requirements.txt`
 
 
-# Used Pelican Plugins
+## Used Pelican Plugins
 
 ```python
 PLUGINS = [
@@ -23,13 +32,7 @@ PLUGINS = [
 ```
 
 
-# Notes
+## Notes
 
 - [reStructuredText Quick Start](http://docutils.sourceforge.net/docs/user/rst/quickref.html)
 - [Use a specific static page as the homepage](http://docs.getpelican.com/en/stable/faq.html#how-can-i-use-a-static-page-as-my-home-page)
-
-
-Supporters <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ATXYY9Y78EQ3Y" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
-==========
-
-Thank you guys for sending me some cups of coffee.
