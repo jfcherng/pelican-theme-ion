@@ -1,8 +1,9 @@
 # This is an implicit value, here for clarity
 --index https://pypi.python.org/simple/
 
-pelican
 beautifulsoup4
-webassets
+black[d]
 cssmin
 jsmin
+pelican
+webassets

@@ -1,25 +1,24 @@
 # Demo
 
-https://jfcherng.github.io/Pelican-Test/
+https://ecsme.ee.nthu.edu.tw
 
 
 # Installation
 
-You may install dependencies via one of the following commands:
+You may install dependencies via the following commands:
 
 - `$ python3 -m pip install -U -r requirements.txt`
-- `$ python3 -m pip install -U pelican beautifulsoup4 webassets cssmin jsmin`
 
 
 # Used Pelican Plugins
 
 ```python
 PLUGINS = [
-    'assets',
-    'headerid', # must before "bootstrap-rst"
-    'bootstrap-rst',
-    'pelican-toc', # https://github.com/ingwinlu/pelican-toc
-    'related_posts',
+    "assets",
+    "headerid", # must before "bootstrap-rst"
+    "bootstrap-rst",
+    "pelican-toc", # https://github.com/ingwinlu/pelican-toc
+    "related_posts",
 ]
 ```
 
