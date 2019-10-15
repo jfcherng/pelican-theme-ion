@@ -1,6 +1,6 @@
 'use strict';
 
-/* ! instant.page v2.0.0 - (C) 2019 Alexandre Dieulot - https://instant.page/license */
+/* ! instant.page v2.0.1 - (C) 2019 Alexandre Dieulot - https://instant.page/license */
 var urlToPreload;
 var mouseoverTimer;
 var lastTouchTimestamp;
@@ -24,7 +24,7 @@ if ('instantIntensity' in document.body.dataset) {
   } else {
     var milliseconds = parseInt(document.body.dataset.instantIntensity);
 
-    if (milliseconds != NaN) {
+    if (!isNaN(milliseconds)) {
       delayOnHover = milliseconds;
     }
   }
