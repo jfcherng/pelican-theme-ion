@@ -1,21 +1,18 @@
 # Pelican Theme: ION
 
-<a href="https://travis-ci.org/jfcherng/pelican-theme-ion"><img alt="Travis (.org) branch" src="https://img.shields.io/travis/jfcherng/pelican-theme-ion/master?style=flat-square"></a>
-<a href="https://github.com/jfcherng/pelican-theme-ion/tags"><img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/tag/jfcherng/pelican-theme-ion?style=flat-square&logo=github"></a>
-<a href="https://github.com/jfcherng/pelican-theme-ion/blob/master/LICENSE"><img alt="Project license" src="https://img.shields.io/github/license/jfcherng/pelican-theme-ion?style=flat-square&logo=github"></a>
-<a href="https://github.com/jfcherng/pelican-theme-ion/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/jfcherng/pelican-theme-ion?style=flat-square&logo=github"></a>
-<a href="https://www.paypal.me/jfcherng/5usd" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-blue.svg?style=flat-square&logo=paypal"></a>
-
+[![Travis (.org) branch](https://img.shields.io/travis/jfcherng/pelican-theme-ion/master?style=flat-square)](https://travis-ci.org/jfcherng/pelican-theme-ion)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/jfcherng/pelican-theme-ion?style=flat-square&logo=github)](https://github.com/jfcherng/pelican-theme-ion/tags)
+[![Project license](https://img.shields.io/github/license/jfcherng/pelican-theme-ion?style=flat-square&logo=github)](https://github.com/jfcherng/pelican-theme-ion/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/jfcherng/pelican-theme-ion?style=flat-square&logo=github)](https://github.com/jfcherng/pelican-theme-ion/stargazers)
+[![Donate to this project using Paypal](https://img.shields.io/badge/paypal-donate-blue.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jfcherng/5usd)
 
 ## Demo
 
 https://ecsme.ee.nthu.edu.tw
 
-
 ## Installation
 
-You can install dependencies via `$ python3 -m pip install -U -r requirements.txt`.
-
+You can install dependencies via `python3 -m pip install -U -r requirements.txt`.
 
 ## Used Pelican Plugins
 
@@ -28,7 +25,6 @@ PLUGINS = [
     "related_posts",
 ]
 ```
-
 
 ## Notes
 
