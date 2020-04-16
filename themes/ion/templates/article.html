@@ -84,7 +84,7 @@
       {% block extra_content_header %}{% endblock extra_content_header %}
 
       {# main-section #}
-      {% if (ION_SHOW_TOC_ON_ARTICLE or article.toc_status == 'yes') and article.toc %}
+      {% if ION_SHOW_TOC_ON_ARTICLE and article.toc_status != 'no' and article.toc %}
         <div class="main-section article-toc">
           <h2>
             <i class="fas fa-fw fa-list"></i>

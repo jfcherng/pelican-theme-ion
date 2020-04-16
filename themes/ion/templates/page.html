@@ -77,7 +77,7 @@
       {% block extra_content_header %}{% endblock extra_content_header %}
 
       {# main-section #}
-      {% if (ION_SHOW_TOC_ON_PAGE or page.toc_status == 'yes') and page.toc %}
+      {% if ION_SHOW_TOC_ON_PAGE and page.toc_status != 'no' and page.toc %}
         <div class="main-section page-toc">
           <h2>
             <i class="fas fa-fw fa-list"></i>
