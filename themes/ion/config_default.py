@@ -9,7 +9,7 @@ from .languages.en_US import *
 TOC = {
     # What headers should be included in the generated toc
     # Expected format is a regular expression
-    "TOC_HEADERS": "^h[1-6]",
+    "TOC_HEADERS": r"^[hH]\d+",
     # Default value for toc generation,
     # if it does not evaluate to 'true' no toc will be generated
     "TOC_RUN": "true",
