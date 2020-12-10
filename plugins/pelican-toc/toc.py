@@ -13,7 +13,8 @@ import re
 from bs4 import BeautifulSoup, Comment
 
 from pelican import contents, signals
-from pelican.utils import python_2_unicode_compatible, slugify
+from pelican.utils import slugify
+from six import python_2_unicode_compatible
 
 
 logger = logging.getLogger(__name__)
