@@ -46,13 +46,14 @@ def unique(id, ids):
 @python_2_unicode_compatible
 class HtmlTreeNode(object):
 
-    def __init__(self, parent, header, level, id, include_title):
+    def __init__(self, parent, header, level, id, include_title, regex_subs = []):
         self.children = []
         self.parent = parent
         self.header = header
         self.level = level
         self.id = id
         self.include_title = include_title
+        self.regex_subs = regex_subs
 
     def add(self, new_header, ids):
         new_level = new_header.name
@@ -66,18 +67,18 @@ class HtmlTreeNode(object):
             new_string = "".join(new_string)
 
         if not new_id:
-            new_id = slugify(new_string, ())
+            new_id = slugify(new_string, self.regex_subs)
 
         new_id = unique(new_id, ids)  # make sure id is unique
         new_header.attrs['id'] = new_id
         if(self.level < new_level):
             new_node = HtmlTreeNode(self, new_string, new_level, new_id,
-                                    self.include_title)
+                                    self.include_title, self.regex_subs)
             self.children += [new_node]
             return new_node, new_header
         elif(self.level == new_level):
             new_node = HtmlTreeNode(self.parent, new_string, new_level, new_id,
-                                    self.include_title)
+                                    self.include_title, self.regex_subs)
             self.parent.children += [new_node]
             return new_node, new_header
         elif(self.level > new_level):
@@ -138,7 +139,8 @@ def generate_toc(content):
 
     all_ids = set()
     title = content.metadata.get('title', 'Title')
-    tree = node = HtmlTreeNode(None, title, 'h0', '', _toc_include_title)
+    tree = node = HtmlTreeNode(None, title, 'h0', '', _toc_include_title,
+                               content.settings.get('SLUG_REGEX_SUBSTITUTIONS', []))
     soup = BeautifulSoup(content._content, 'html.parser')
     settoc = False
 
