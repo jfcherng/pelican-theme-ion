@@ -21,7 +21,7 @@ PLUGINS = [
     "assets",
     "headerid", # must before "bootstrap-rst"
     "bootstrap-rst",
-    "pelican-toc", # modified from https://github.com/ingwinlu/pelican-toc
+    "pelican-toc", # https://github.com/jfcherng/pelican-toc
     "related_posts",
 ]
 ```
