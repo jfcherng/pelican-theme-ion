@@ -162,7 +162,7 @@
 
     {% if ION_ASSETS_MINIFY %}
       {% assets filters="jsmin", output="js/all.%(version)s.js",
-        "js/jquery-3.4.1.min.js",
+        "js/jquery-3.6.0.min.js",
         "js/skel-modified.js",
         "js/skel-layers.min.js",
         "js/skel-init.js",
@@ -174,7 +174,7 @@
         <script type="text/javascript" src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
       {% endassets %}
     {% else %}
-      <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-3.6.0.min.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-modified.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-layers.min.js"></script>
       <script type="text/javascript" src="{{ SITEURL }}/theme/js/skel-init.js"></script>
